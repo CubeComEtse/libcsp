@@ -224,7 +224,7 @@ int csp_can_remove_interface(csp_iface_t * iface);
  * @param[in] packet CSP packet
  * @return #CSP_ERR_NONE on success, otherwise an error code.
  */
-int csp_can_tx(csp_iface_t * iface, uint16_t via, csp_packet_t *packet);
+int csp_can_tx(csp_iface_t * iface, uint16_t via, csp_packet_t *packet, int from_me);
 
 /**
  * Process received CAN frame.
