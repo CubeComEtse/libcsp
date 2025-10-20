@@ -494,6 +494,14 @@ int csp_can_remove_interface(csp_iface_t * iface) {
 	return CSP_ERR_NONE;
 }
 
+int csp_can_tx(csp_iface_t * iface, uint16_t via, csp_packet_t * packet, int from_me) {
+	if (csp_conf.version == 1) {
+		return csp_can1_tx(iface, via, packet, from_me);
+	} else {
+		return csp_can2_tx(iface, via, packet, from_me);
+	}
+}
+
 int csp_can_rx(csp_iface_t * iface, uint32_t id, const uint8_t * data, uint8_t dlc, int * task_woken) {
 	if (csp_conf.version == 1) {
 		return csp_can1_rx(iface, id, data, dlc, task_woken);

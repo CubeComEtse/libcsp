@@ -14,10 +14,6 @@
 #include <zephyr/device.h>
 #endif
 
-#if (CSP_CUBECOM)
-#include "ccd_uart_driver.h"
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,8 +23,6 @@ extern "C" {
  */
 #if (CSP_ZEPHYR)
 typedef const struct device * csp_usart_fd_t;
-#elif (CSP_CUBECOM)
-typedef const struct ccd_uart_s * csp_usart_fd_t;
 #else
 typedef int csp_usart_fd_t;
 #endif
@@ -43,9 +37,6 @@ typedef struct csp_usart_conf {
 	uint8_t databits;      /**< Number of data bits. */
 	uint8_t stopbits;      /**< Number of stop bits. */
 	uint8_t paritysetting; /**< Parity setting. */
-#if (CSP_CUBECOM)
-	const ccd_uart_t * ccd_usart_handle;
-#endif
 } csp_usart_conf_t;
 
 /**
