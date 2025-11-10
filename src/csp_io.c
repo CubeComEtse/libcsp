@@ -107,7 +107,7 @@ void csp_send_direct(csp_id_t* idout, csp_packet_t * packet, csp_iface_t * route
 
 		local_found = 1;
 
-		/* Do not send back to same inteface (split horizon)
+		/* Do not send back to same interface (split horizon)
 		 * This check is is similar to that below, but faster */
 		if (iface == routed_from) {
 			continue;
@@ -123,7 +123,7 @@ void csp_send_direct(csp_id_t* idout, csp_packet_t * packet, csp_iface_t * route
 			_idout.src = iface->addr;
 		}
 
-		/* Rewrite routed brodcast (L3) to local (L2) when arriving at the interface */
+		/* Rewrite routed broadcast (L3) to local (L2) when arriving at the interface */
 		if (csp_id_is_broadcast(idout->dst, iface)) {
 			_idout.dst = csp_id_get_max_nodeid();
 		}
@@ -152,7 +152,7 @@ void csp_send_direct(csp_id_t* idout, csp_packet_t * packet, csp_iface_t * route
 		do {
 			route_found = 1;
 
-			/* Do not send back to same inteface (split horizon)
+			/* Do not send back to same interface (split horizon)
 			* This check is is similar to that below, but faster */
 			if (route->iface == routed_from) {
 				continue;
@@ -186,7 +186,7 @@ void csp_send_direct(csp_id_t* idout, csp_packet_t * packet, csp_iface_t * route
 	/* Try to send via default interfaces */
 	while ((iface = csp_iflist_get_by_isdfl(iface)) != NULL) {
 
-		/* Do not send back to same inteface (split horizon)
+		/* Do not send back to same interface (split horizon)
 		 * This check is is similar to that below, but faster */
 		if (iface == routed_from) {
 			continue;
