@@ -15,7 +15,7 @@
  ****************************************************************************/
 #pragma once
 
-#include "csp/autoconfig.h"
+#include "csp_config.h"
 #include <inttypes.h>
 
 #ifdef __cplusplus

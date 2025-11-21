@@ -1,6 +1,6 @@
 #pragma once
 
-#include "csp/autoconfig.h"
+#include "csp_config.h"
 
 #if (CSP_ZEPHYR)
 #include <zephyr/kernel.h>

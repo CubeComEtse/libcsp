@@ -6,7 +6,7 @@
 #include <csp/csp_id.h>
 #include <csp/csp_iflist.h>
 #include <csp/interfaces/csp_if_lo.h>
-#include "csp/autoconfig.h"
+#include "csp_config.h"
 
 static int csp_rtable_parse(const char * rtable, int dry_run) {
 
