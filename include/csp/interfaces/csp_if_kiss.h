@@ -65,13 +65,13 @@ int csp_kiss_add_interface(csp_iface_t * iface);
 int csp_kiss_tx(csp_iface_t * iface, uint16_t via, csp_packet_t * packet, int from_me);
 
 /**
- * Process received CAN frame.
+ * Process received KISS frame.
  *
  * Called from driver when a chunk of data has been received. Once a complete
  * frame has been received, the CSP packet will be routed on.
  *
  * @param[in] iface incoming interface.
- * @param[in] buf reveived data.
+ * @param[in] buf received data.
  * @param[in] len length of \a buf.
  * @param[out] pxTaskWoken Valid reference if called from ISR, otherwise NULL!
  */

@@ -1,8 +1,6 @@
-
-
 #pragma once
 
-#include "csp/autoconfig.h"
+#include "csp_config.h"
 
 #define CSP_SEMAPHORE_OK 	0
 #define CSP_SEMAPHORE_ERROR	-1
