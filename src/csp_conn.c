@@ -174,15 +174,16 @@ csp_conn_t * csp_conn_allocate(csp_conn_type_t type) {
           break;
         }
 #else
-        // TODO: [ADRIAAN] Implement proper software-based locking mechanism
+        taskENTER_CRITICAL();
         if (arr_conn[i].state == expected) {
             arr_conn[i].state = CONN_OPEN;
             conn = &arr_conn[i];
-            csp_conn_last_given = i;
+            csp_conn_last_given = (uint8_t) i;
+            taskEXIT_CRITICAL();
             break;
         } else {
-            // TODO: [ADRIAAN] Investigate if this is needed since we are overriding the expected value above anyway...
             expected = arr_conn[i].state;
+            taskEXIT_CRITICAL();
         }
 #endif
 	}
